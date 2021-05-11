@@ -10,6 +10,9 @@ from torchvision.datasets import MNIST
 
 import pytorch_lightning as pl
 
+from Generator import Generator
+from Discriminator import Discriminator
+
 class GAN(pl.LightningModule):
  
     def __init__(
