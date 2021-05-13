@@ -1,4 +1,4 @@
-__pycache__
-MNIST
-lightning_logs
 .vscode
+__pycache__/
+MNIST/
+lightning_logs/
