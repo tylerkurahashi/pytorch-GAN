@@ -32,7 +32,7 @@ class Generator(nn.Module):
             nn.Tanh()
         )
 
-        def forward(self, z):
-            img = self.model(z)
-            img = img.view(img.size(0), *self.img_shape)
-            return img
+    def forward(self, z):
+        img = self.model(z)
+        img = img.view(img.size(0), *self.img_shape)
+        return img

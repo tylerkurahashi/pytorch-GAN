@@ -1,4 +1,5 @@
 import numpy as np
+from collections import OrderedDict
 
 import torch
 import torch.nn as nn
@@ -21,10 +22,10 @@ class GAN(pl.LightningModule):
         width,
         height,
         latent_dim: int = 100,
-        lr: float = 0.0002,
+        lr: float = 0.001,
         b1: float = 0.5,
         b2: float = 0.999,
-        batch_size: int = 64,
+        batch_size: int = 256,
         **kwargs
     ):
         super().__init__()
@@ -59,7 +60,7 @@ class GAN(pl.LightningModule):
             self.generated_imgs = self(z)
  
             # log sampled images
-            sample_imgs = self.generated_imgs[:6]
+            sample_imgs = self.generated_imgs[:8]
             grid = torchvision.utils.make_grid(sample_imgs)
             self.logger.experiment.add_image('generated_images', grid, 0)
  
